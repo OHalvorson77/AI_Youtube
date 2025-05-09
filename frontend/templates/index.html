@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI YouTube Generator</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="neon">AI YouTube Generator</h1>
+        <button id="generateBtn" class="neon-button">Generate & Upload</button>
+        <p id="statusMessage"></p>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            fetch('/generate', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    const msg = document.getElementById('statusMessage');
+                    msg.textContent = data.message;
+                    msg.style.color = data.status === 'success' ? '#0f0' : '#f00';
+                });
+        });
+    </script>
+</body>
+</html>
