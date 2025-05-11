@@ -34,7 +34,7 @@ def fetch_video_for_keyword(keyword, output_folder="stock_clips"):
     video_url = data["videos"][0]["video_files"][0]["link"]
     video_filename = os.path.join(output_folder, f"{keyword}.mp4")
 
-    # Download the video
+    
     os.makedirs(output_folder, exist_ok=True)
     video_data = requests.get(video_url)
     with open(video_filename, "wb") as f:

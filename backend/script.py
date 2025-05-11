@@ -2,7 +2,7 @@ from groq import Groq
 
 
 
-api_key="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"
+api_key="..."
 
 
 client = Groq(api_key=api_key)

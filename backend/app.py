@@ -17,7 +17,7 @@ def generate():
         title = data['title']
         description = data['description']
 
-        # Call your main function with the values
+        
         main(prompt, title, description)
 
         return jsonify({'status': 'success', 'message': 'Video uploaded successfully!'})
