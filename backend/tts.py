@@ -15,7 +15,7 @@ def tts(script):
     # Generate and play audio from text
     audio = client.text_to_speech.convert(
     text=script,
-    voice_id="IKjm2pkRf34Evn9W4dIb",
+    voice_id="IZl7aMcWb3WnBsxQFo8H",
     model_id="eleven_multilingual_v2",
     output_format="mp3_44100_128",
 )

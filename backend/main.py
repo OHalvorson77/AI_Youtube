@@ -3,10 +3,11 @@ from tts import tts
 from keywords import keyword
 from videoGen import keyWordVideoGen
 from videoCreate import videoCreate
+from upload import upload_video
 
 
 
-def main(topic):
+def main(topic, title, description):
 
     print("Generating Script.....")
     script_list=generate_script(topic)
@@ -26,10 +27,11 @@ def main(topic):
 
     videoCreate()
 
-
-    print("Creating thumbnail.......")
-
     print("Uploading video to youtube...........")
+
+    upload_video("./final_video.mp4", title, description)
+
+
 
 
     print("FINISHED!!")
@@ -37,4 +39,4 @@ def main(topic):
 
 
 if __name__ == "__main__":
-    main()
+    main("Test")

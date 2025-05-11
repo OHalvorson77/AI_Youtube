@@ -7,14 +7,24 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
+
 @app.route('/generate', methods=['POST'])
 def generate():
     try:
-        # Call your main upload logic
-        main()
+        data = request.get_json()
+        prompt = data['prompt']
+        title = data['title']
+        description = data['description']
+
+        # Call your main function with the values
+        main(prompt, title, description)
+
         return jsonify({'status': 'success', 'message': 'Video uploaded successfully!'})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
-
+    
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = 5000
+    print(f"🚀 Running on http://localhost:{port}")
+    app.run(debug=True, port=port)
